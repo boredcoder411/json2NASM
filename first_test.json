@@ -1,0 +1,10 @@
+[
+    {
+        "type": "inst",
+        "name": "mov",
+        "operands": [
+            "ah",
+            "2"
+        ]
+    }
+]
