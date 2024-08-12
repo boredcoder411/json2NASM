@@ -1,0 +1,129 @@
+{
+    "instructions": [
+        {
+            "directive": "org",
+            "operands": [
+                "0x7c00"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "[BOOT_DISK]",
+                "dl"
+            ]
+        },
+        {
+            "comment": "setting up the stack"
+        },
+        {
+            "opcode": "xor",
+            "operands": [
+                "ax",
+                "ax"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "es",
+                "ax"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "ds",
+                "ax"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "bp",
+                "0x8000"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "sp",
+                "bp"
+            ]
+        },
+        {
+            "comment": "reading the disk"
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "bx",
+                "0x7e00"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "ah",
+                "2"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "al",
+                "6"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "ch",
+                "0"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "dh",
+                "0"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "cl",
+                "2"
+            ]
+        },
+        {
+            "opcode": "mov",
+            "operands": [
+                "dl",
+                "[BOOT_DISK]"
+            ]
+        },
+        {
+            "opcode": "int",
+            "operands": [
+                "0x13"
+            ]
+        },
+        {
+            "opcode": "jmp",
+            "operands": [
+                "0x7e00"
+            ]
+        },
+        {
+            "label": "BOOT_DISK",
+            "opcode": "db",
+            "operands": [
+                "0"
+            ]
+        },
+        {
+            "special_inst": "sign"
+        }
+    ]
+}
